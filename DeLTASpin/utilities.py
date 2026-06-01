@@ -1415,7 +1415,7 @@ class Lineage:
 
         # Division event:
         elif len(attrib) == 2:
-            # print("i'm dividing!!")
+            # print("this is seen as a cell division event")
             mothernum = self.cellnumbers[0][cell]  # Get old cell number
             # Poles of mother/previous/old cell:
             prev_old = self.getvalue(mothernum, 0, "old_pole")
@@ -1427,7 +1427,7 @@ class Lineage:
             mother_poles, daughter_poles, first_cell_is_mother = division_poles(
                 poles[0], poles[1], prev_old, prev_new
             )
-            # Create daughter: - actually do not!!
+            # Create daughter: -> deactivated from DeLTA2.0 as any trailing "daughters" created after the very first frame are not useful
             # daughternum = self.createcell(
             #     frame,
             #     old_pole=daughter_poles[0],
