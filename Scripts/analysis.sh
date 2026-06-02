@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Grid engine options
-#$ -wd "/exports/csce/eddie/biology/groups/pilizota/diana/anaconda/envs/biosensor_analysis/lib/python3.9/site-packages/delta/outputs"
+#$ -wd "path/to/outputs/folder"
 #$ -l h_rt=24:00:00
 #$ -l h_vmem=512G
 #$ -q gpu 
@@ -16,8 +16,8 @@ slide_to_analyse="$1"
 
 source /etc/profile.d/modules.sh
 module load anaconda
-# source activate biosensor_analysis
-source activate /exports/csce/eddie/biology/groups/pilizota/diana/anaconda/envs/biosensor_analysis
+# source activate analysis environment that can run delta
+source activate path/to/analysis/environment
 
 # Check if environment was activated successfully
 if [ "$CONDA_DEFAULT_ENV" == "biosensor_analysis" ]; then
