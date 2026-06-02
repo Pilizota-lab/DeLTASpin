@@ -1,14 +1,9 @@
 # HPC scripts
 
-This folder contains example bash scripts used to run DeLTASpin on the Eddie (Edinburgh University's HPC cluster). 
-
-These scripts were written for the Eddie cluster configuration used in our group (last checked: May 2026). They include cluster-specific paths, scheduler settings, environment names, and data-staging steps. Users running DeLTASpin on a different system need to adapt these settings before use.
-
-The scripts are provided to document the workflow used for large image-sequence analysis on a HPC cluster. They are not intended to be fully portable without modification.
+This folder contains the bash scripts used to run DeLTASpin on the Eddie (Edinburgh University's HPC cluster), which uses the AGE batch system. Note that these are specific to the Eddie cluster configuration as of November 2023 (last checked May 2026). Thus, these scripts will need to be adapted if used on a different systems, but are provided as an example. 
 
 ## Files
-
-* `analysis.sh` – example analysis script for running the DeLTASpin pipeline.
-* `new_master_script.sh` – example master script for submitting or coordinating analysis jobs.
-* `stagein.sh` – example script for staging input data onto the cluster.
-* `stageout.sh` – example script for copying results back after analysis.
+* `stagein.sh` – script for staging data on cluster (server -> cluster)
+* `analysis.sh` – script for running the DeLTASpin pipeline 
+* `stageout.sh` – script for copying results to permanent storage (cluster -> server)
+* `new_master_script.sh` – master script submitting and coordinating the 3 steps above
