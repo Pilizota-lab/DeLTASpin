@@ -8,13 +8,21 @@
 # this only works when data is organised in two hierarchic levels (folders with data in folders in a big folder) - adjust for other cases
 
 # note submitting this script can take between 1 and 4 arguments:
-# $1 represents biosensor_type/date (necessary argument, no default)
+# $1 represents the relative path to the dataset (e.g., biosensor_type/date; required argument, no default)
 # $2 represents extension (string type) - given by file format (by defauly, tif)
 # $3 represents population (boolean type) - False for single-cell analysis over time sequences (by default, True)
 # $4 represents frame rate (int) - for motor speed adjustment (by default, 100 fps)
 
+# Expected input structure:
+# DATA_ROOT/
+# └── sensor_type/
+#     └── date/
+#         └── concentration/
+#             └── slide/
+#                 └── sequence/
 
-# extra arguments: file extension of data sets (.tif by default) and population (T by default)
+
+# extra arguments: file extension of data sets (.tif by default) and population (T by default) 
 ext="tif"
 pop="True"
 fps="100"
@@ -57,7 +65,7 @@ while [ $job_running -eq 1 ]; do
 done
 
 dataset_name="$1"
-path_to_data="/path/to/data/root/${dataset_name}"
+path_to_data="{DATA_ROOT}/${dataset_name}"
 echo "$path_to_data"
 
 #2. submit analyses
