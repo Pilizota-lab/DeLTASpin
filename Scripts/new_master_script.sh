@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #this is the master script which:
-#1. stages data DataStore -> Eddie (stagein.sh)
-#2. rename files on Eddie as time_04d.{ext} format (and move files if needed - i.e., if pop=False)
-#3. analyse data on Eddie (analysis.sh, submitted in iteratively through submit_analyses.sh)
-#4. stage data Eddie -> DataStore (stageout.sh)
-# this only works when data is organised in two hierarchic levels (folders with data in folders in a big folder)
+#1. stages data data server -> cluster (stagein.sh)
+#2. rename files on cluster as time_04d.{ext} format (and move files if needed - i.e., if pop=False)
+#3. analyse data on cluster (analysis.sh, submitted in iteratively through submit_analyses.sh)
+#4. stage data cluster -> data server (stageout.sh)
+# this only works when data is organised in two hierarchic levels (folders with data in folders in a big folder) - adjust for other cases
 
-# note: 
+# note submitting this script can take between 1 and 4 arguments:
 # $1 represents biosensor_type/date (necessary argument, no default)
 # $2 represents extension (string type) - given by file format (by defauly, tif)
 # $3 represents population (boolean type) - False for single-cell analysis over time sequences (by default, True)
@@ -55,10 +55,10 @@ while [ $job_running -eq 1 ]; do
         job_running=0
     fi
 done
-		
-path_to_data="/exports/eddie/scratch/$(whoami)/biosensor_data/$1"
-echo "$path_to_data"
 
+dataset_name="$1"
+path_to_data="/path/to/data/root/${dataset_name}"
+echo "$path_to_data"
 
 #2. submit analyses
 
