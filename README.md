@@ -20,7 +20,7 @@ The output is a .mat file that shows all cell lineages (as per DeLTA2.0) and add
 
 DeLTASpin requires the DeLTA2.0 environment. Please follow the [DeLTA2.0 installation instructions](https://gitlab.com/delta-microscopy/delta) first. DeLTASpin was developed and tested against commit `cef6d9443ce5cc3a101cf940029d51c93f831ebf`.
 
-Once the DeLTA2.0 environment is set up, replace the existing `utilities.py` and `pipeline.py` with the files found in the `DeLTASpin/` directory of this repo.
+Once the DeLTA2.0 environment is set up, replace the existing `utilities.py` and `pipeline.py` with the files found in the `DeLTASpin/` directory of this repo. The rest of the scripts are included for reference but remain unaltered compared to DeLTA2.0.
 
 We also provide our training parameters for the segmentation U-net in `Training/unet_pads_seg.hdf5`. To use these, replace the existing `unet_pads_seg.hdf5` file with the one in this repo.
 
