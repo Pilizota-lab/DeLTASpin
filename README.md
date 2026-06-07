@@ -4,9 +4,9 @@ DeLTASpin is a tool for automated analysis of tethered cell assay data, built on
 
 ## Overview
 
-![DeLTASpin pipeline](figure.png)
-
 While DeLTA2.0 was designed for analysing bacterial cells growing on a 2D surface or in mother-machine devices, DeLTASpin adapts the workflow for tethered cell assays, where cells remain attached to a surface and rotate rather than grow and divide.
+
+![DeLTASpin pipeline](figure.png)
 
 Compared to DeLTA2.0, DeLTASpin:
 
