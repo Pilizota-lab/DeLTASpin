@@ -33,6 +33,37 @@ print(len(os.listdir(data_folder)), " files in folder")
 import delta
 delta.config.load_config(presets="2D")
     
+# rename files to prototypable structure
+import os
+def rename(img_directory, ext):
+    '''
+    this function renames all image sequences collected from microscope
+    only run it once, otherwise it will through an error
+    '''
+    #choose image sequence 
+    import os
+    import re
+    #check if names have already been changed
+    if re.match("time_(\d{4}).%s"%ext,os.listdir(img_directory)[0])!=True:
+        #rename all images in the image sequence in a prototypable way
+        for img in os.listdir(img_directory):
+            if re.match(r"(.*)(\D)(\d){1}.%s"%ext, img):
+                os.rename(f"{img_directory}/{img}", f"{img_directory}/time_000{img[-5:]}")
+                print(img)
+            else: #fewer operations if it goes in this order
+                if re.match(r"(.*)(\D)(\d){2}.%s"%ext, img):
+                    os.rename(f"{img_directory}/{img}", f"{img_directory}/time_00{img[-6:]}")
+                else:
+                    if re.match(r"(.*)(\D)(\d){3}.%s"%ext, img):
+                        os.rename(f"{img_directory}/{img}", f"{img_directory}/time_0{img[-7:]}")
+                    else:
+                        if re.match(r"(.*)(\D)(\d){4}.%s"%ext, img):
+                            os.rename(f"{img_directory}/{img}", f"{img_directory}/time_{img[-8:]}")
+    return(img_directory)
+
+rename(data_folder, extension)
+
+
 
 # will have to manually set the extension of the file as the prototypable name needs to contain %04d and 
 if extension == "tif":
@@ -867,4 +898,4 @@ def run_postprocessing(
     f.close()
 
 # run postprocessing pipeline
-run_postprocessing(os.path.join(data_folder, "delta_results"), fps=fps)
+run_postprocessing(os.path.join(data_folder), fps=fps)
