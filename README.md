@@ -10,7 +10,7 @@ While DeLTA2.0 was designed for analysing bacterial cells growing on a 2D surfac
 
 Compared to DeLTA2.0, DeLTASpin:
 
-- Assigns cell identity in each frame with respect to the first frame (rather than frame n-1), giving additional robustness when two cells overlap occasionally
+- Assigns cell identity in each frame with respect to the first frame (rather than frame n-1), giving additional robustness in situations specific to rotation (e.g., when two cells overlap occasionally)
 - Disables division tracking, as tethered cell assay recordings typically span only a few minutes
 - Includes classification of spinning cells and extracts motor speed and direction from pole coordinate data
 
@@ -62,11 +62,6 @@ Activate it with:
 conda activate deltaspin
 ```
 
-The environment only needs to be created once. For future use, activate it again with:
-
-```bat
-conda activate deltaspin
-```
 
 ### 2. Add the DeLTASpin files to the DeLTA installation
 
@@ -90,7 +85,7 @@ Replace the original `pipeline.py` and `utilities.py` files with the modified ve
 
 Then copy the provided `assets` folder into the `delta` package directory.
 
-### 3. Configure the paths to the training weights files
+### 3. Configure the paths to the trained weights files
 
 Open the following file inside the installed `delta` package:
 
