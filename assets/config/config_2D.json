@@ -1,0 +1,40 @@
+{
+    "presets": "2D",
+    "models": [
+        "segmentation",
+        "tracking"
+    ],
+    "model_file_rois": "",
+    "model_file_seg": "C:/Users/Diana/miniconda3/envs/deltaspin_test/Lib/site-packages/delta/assets/models/unet_pads_seg.hdf5",
+    "model_file_track": "C:/Users/Diana/miniconda3/envs/deltaspin_test/Lib/site-packages/delta/assets/models/unet_pads_track.hdf5",
+    "target_size_rois": [
+        512,
+        512
+    ],
+    "target_size_seg": [
+        512,
+        512
+    ],
+    "target_size_track": [
+        256,
+        256
+    ],
+    "training_set_rois": "",
+    "training_set_seg": "",
+    "training_set_track": "",
+    "eval_movie": "",
+    "rotation_correction": false,
+    "drift_correction": false,
+    "crop_windows": true,
+    "min_roi_area": 500,
+    "whole_frame_drift": false,
+    "min_cell_area": 20,
+    "save_format": [
+        "legacy",
+        "movie"
+    ],
+    "TF_CPP_MIN_LOG_LEVEL": "2",
+    "memory_growth_limit": null,
+    "pipeline_seg_batch": 64,
+    "pipeline_track_batch": 64
+}
