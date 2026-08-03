@@ -782,6 +782,7 @@ def run_postprocessing(
         simplify_cells=True
     )
     cell_info = processed_data["res"]["lineage"]
+    cell_info = [cell_info] if isinstance(cell_info, dict) else cell_info # account for cases where there's only one cell in the fov
 
     # will iterate over each cell
     no_of_cells = np.size(cell_info)
